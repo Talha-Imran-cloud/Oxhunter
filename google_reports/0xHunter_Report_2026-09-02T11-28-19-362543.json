@@ -1,0 +1,93 @@
+{
+  "target": "https://www.google.com",
+  "start_time": "2026-09-02T11:28:19.362543",
+  "end_time": "2026-09-02T11:37:23.459517",
+  "urls_crawled": 337,
+  "forms_found": 102,
+  "findings": [
+    {
+      "type": "HEADERS",
+      "subtype": "missing",
+      "url": "https://www.google.com",
+      "parameter": "Strict-Transport-Security",
+      "payload": "N/A",
+      "confidence": "high",
+      "evidence": "Missing header: Strict-Transport-Security - HSTS - Forces HTTPS connections",
+      "remediation": "Add: Strict-Transport-Security: max-age=31536000; includeSubDomains; preload",
+      "severity": "Medium"
+    },
+    {
+      "type": "HEADERS",
+      "subtype": "missing",
+      "url": "https://www.google.com",
+      "parameter": "X-Content-Type-Options",
+      "payload": "N/A",
+      "confidence": "high",
+      "evidence": "Missing header: X-Content-Type-Options - Prevents MIME-type sniffing",
+      "remediation": "Add: X-Content-Type-Options: nosniff",
+      "severity": "Medium"
+    },
+    {
+      "type": "HEADERS",
+      "subtype": "missing",
+      "url": "https://www.google.com",
+      "parameter": "Content-Security-Policy",
+      "payload": "N/A",
+      "confidence": "high",
+      "evidence": "Missing header: Content-Security-Policy - XSS and data injection protection",
+      "remediation": "Add a strict Content-Security-Policy header. Start with: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'",
+      "severity": "Medium"
+    },
+    {
+      "type": "HEADERS",
+      "subtype": "missing",
+      "url": "https://www.google.com",
+      "parameter": "Referrer-Policy",
+      "payload": "N/A",
+      "confidence": "high",
+      "evidence": "Missing header: Referrer-Policy - Controls referrer information leakage",
+      "remediation": "Add: Referrer-Policy: strict-origin-when-cross-origin or no-referrer",
+      "severity": "Medium"
+    },
+    {
+      "type": "HEADERS",
+      "subtype": "missing",
+      "url": "https://www.google.com",
+      "parameter": "Permissions-Policy",
+      "payload": "N/A",
+      "confidence": "high",
+      "evidence": "Missing header: Permissions-Policy - Controls browser features/APIs",
+      "remediation": "Add: Permissions-Policy: geolocation=(), microphone=(), camera=()",
+      "severity": "Medium"
+    },
+    {
+      "type": "HEADERS",
+      "subtype": "information_disclosure",
+      "url": "https://www.google.com",
+      "parameter": "Server",
+      "payload": "N/A",
+      "confidence": "low",
+      "evidence": "Information disclosure: Server: gws",
+      "remediation": "Configure server to suppress or genericize Server header",
+      "severity": "Medium"
+    },
+    {
+      "type": "CSRF",
+      "subtype": "missing_token",
+      "url": "https://www.google.com",
+      "parameter": "N/A",
+      "payload": "N/A",
+      "confidence": "high",
+      "evidence": "POST form at https://www.google.com/v3/signin/identifier?continue=https://adsense.google.com/adsense/login?continue%3Dhttps://adsense.google.com/adsense/?utm_source%253Dabout.google%2526utm_medium%253Dreferral%2526utm_campaign%253Dproductslist&dsh=S1295342131:1788330724422147&flowEntry=ServiceLogin&flowName=WebLiteSignIn&followup=https://adsense.google.com/adsense/login?continue%3Dhttps://adsense.google.com/adsense/?utm_source%253Dabout.google%2526utm_medium%253Dreferral%2526utm_campaign%253Dproductslist&osid=1&service=adsense has no CSRF token field",
+      "remediation": "Add CSRF tokens to all state-changing forms. Use synchronizer token pattern or double-submit cookie. Implement SameSite cookies.",
+      "severity": "High"
+    }
+  ],
+  "summary": {
+    "Critical": 0,
+    "High": 1,
+    "Medium": 6,
+    "Low": 0,
+    "Info": 0
+  }
+}

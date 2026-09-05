@@ -1,0 +1,15 @@
+# Include the main CLI script (non-identifier filename — can't go in py-modules)
+include 0xhunter.py
+
+# Config and data files
+include config.yaml
+include LICENSE
+include README.md
+
+# All payload text files
+recursive-include payloads *.txt
+
+# Exclude compiled and log files
+global-exclude *.pyc
+global-exclude __pycache__
+global-exclude *.log

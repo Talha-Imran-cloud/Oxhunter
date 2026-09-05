@@ -1,0 +1,104 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oxhunter"
+version = "2.1.5"
+description = "Advanced web vulnerability scanner for authorized security testing"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [
+  { name = "Talha Imran", email = "talhaimran20008@gmail.com" }
+]
+keywords = ["security", "vulnerability-scanner", "web-security", "penetration-testing", "owasp"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Information Technology",
+  "Intended Audience :: System Administrators",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Security",
+  "Topic :: System :: Monitoring",
+]
+dependencies = [
+  "httpx[http2]>=0.27.0",
+  "requests>=2.31.0",
+  "urllib3>=2.0.0",
+  "websocket-client>=1.7.0",
+  "aiohttp>=3.9.0",
+  "beautifulsoup4>=4.12.0",
+  "lxml>=5.0.0",
+  "typer>=0.9.0",
+  "rich>=13.7.0",
+  "jinja2>=3.1.0",
+  "pdfkit>=1.0.0",
+  "pyyaml>=6.0.1",
+  "pydantic>=2.5.0",
+  "aiofiles>=23.0.0",
+  "python-dotenv>=1.0.0",
+  "cryptography>=42.0.0",
+  "pyOpenSSL>=24.0.0",
+  "pyjwt>=2.8.0",
+  "dnspython>=2.6.0",
+  "python-whois>=0.8.0",
+  "playwright>=1.40.0",
+  "groq>=0.9.0",
+  "slack-sdk>=3.27.0",
+  "jira>=3.8.0",
+  "PyGithub>=2.3.0",
+  "colorama>=0.4.6",
+  "tqdm>=4.66.0",
+  "tabulate>=0.9.0",
+  "certifi>=2024.0.0",
+  "Pillow>=10.0.0",
+  "flask>=3.0.0",
+  "flask-socketio>=5.3.0",
+  "ipwhois>=1.2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Talha-Imran-cloud/Oxhunter"
+Repository = "https://github.com/Talha-Imran-cloud/Oxhunter"
+Issues = "https://github.com/Talha-Imran-cloud/Oxhunter/issues"
+
+[project.scripts]
+0xhunter = "oxhunter_cli:main"
+
+[tool.setuptools]
+include-package-data = true
+
+py-modules = [
+  "oxhunter_app",
+  "oxhunter_main",
+  "oxhunter_cli",
+  "asn_scan",
+  "dashboard_server",
+  "mass_scan",
+  "nuclei_integration",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["ai*", "compliance*", "core*", "integrations*", "modules*", "payloads*", "recon*", "utils*"]
+
+[tool.setuptools.package-data]
+# config.yaml bundled inside core/ package — available after pip install
+core = ["config.yaml"]
+"*" = ["LICENSE"]
+payloads = ["**/*.txt"]
+
+[tool.setuptools.exclude-package-data]
+"*" = ["*.pyc", "__pycache__/*", "*.log"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

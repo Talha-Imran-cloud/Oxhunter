@@ -1,0 +1,44 @@
+# 0xHunter Configuration
+
+scanner:
+  max_depth: 3
+  max_urls: 500
+  timeout: 30
+  follow_redirects: true
+  verify_ssl: false
+
+rate_limit:
+  requests_per_second: 10
+  delay_between_requests: 0.1
+  max_retries: 3
+  retry_delay: 2
+
+scope:
+  include: []
+  exclude:
+    - "logout"
+    - "signout"
+    - "delete"
+    - "admin/settings"
+    - "api/delete"
+
+payloads:
+  xss_file: "payloads/xss/xss.txt"
+  sqli_file: "payloads/sqli/sqli.txt"
+  lfi_file: "payloads/lfi/lfi.txt"
+  ssrf_file: "payloads/ssrf/ssrf.txt"
+
+report:
+  template_dir: "reports"
+  output_dir: "reports"
+  include_screenshots: true
+
+logging:
+  level: "INFO"
+  file: "logs/0xhunter.log"
+  max_size_mb: 10
+
+safety:
+  require_explicit_authorization: true
+  show_disclaimer: true
+  block_external_domains: true

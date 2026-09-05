@@ -1,0 +1,2 @@
+[console_scripts]
+0xhunter = oxhunter_cli:main

