@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "oxhunter"
-version = "2.1.5"
+version = "2.1.6"
 description = "Advanced web vulnerability scanner for authorized security testing"
 readme = "README.md"
 requires-python = ">=3.10"
