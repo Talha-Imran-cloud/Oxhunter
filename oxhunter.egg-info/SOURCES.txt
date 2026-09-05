@@ -109,6 +109,7 @@ payloads/wordlists/common_dirs.txt
 payloads/wordlists/passwords.txt
 payloads/wordlists/sensitive_files.txt
 payloads/wordlists/subdomains.txt
+payloads/xss/xss.txt
 payloads/xxe/xxe.txt
 recon/__init__.py
 recon/passive_recon.py

@@ -371,6 +371,14 @@ class ScannerEngine:
                 evidence = f"Alive subdomain: {subdomain} [{ip}] — HTTP {status} — {title}"
             else:
                 url      = self._get(f, "url", "")
+                # BUG-SSL-URL FIX: SSLFinding has no 'url' field — it has 'host' + 'port'.
+                # Construct the url from those fields when url is empty.
+                if not url:
+                    host = self._get(f, "host", "")
+                    port = self._get(f, "port", 443)
+                    if host:
+                        scheme = "https" if int(port) == 443 else "http"
+                        url = f"{scheme}://{host}" if int(port) in (80, 443) else f"{scheme}://{host}:{port}"
                 evidence = self._get(f, "evidence", "")
 
             self.report.findings.append({

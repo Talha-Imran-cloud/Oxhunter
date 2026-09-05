@@ -297,14 +297,35 @@ class CORSScanner:
             tasks = [self.test_url(url) for url in unique_urls[:50]]  # cap at 50
 
             self.logger.info(f"Running CORS tests on {len(tasks)} endpoints...")
-            results = await asyncio.gather(*tasks, return_exceptions=True)
 
-            for result in results:
-                if isinstance(result, Exception):
-                    self.logger.debug(f"CORS test error: {result}")
-                    continue
-                if isinstance(result, list):
-                    self.findings.extend(result)
+            # BUG-CORS-TIMEOUT FIX: Use asyncio.wait with FIRST_COMPLETED instead of gather,
+            # so partial findings are saved even when the outer _safe_scan timeout fires.
+            # Previously gather() was cancelled mid-way and self.findings stayed empty.
+            import asyncio as _asyncio
+            pending = {_asyncio.ensure_future(t) for t in tasks}
+            # Give each batch a per-task soft deadline (slightly under module timeout)
+            soft_deadline = 100  # seconds — stays under CORS 120s hard timeout
+            try:
+                done, pending = await _asyncio.wait(
+                    pending,
+                    timeout=soft_deadline,
+                    return_when=_asyncio.ALL_COMPLETED
+                )
+            except Exception:
+                done = set()
+
+            # Cancel remaining tasks cleanly
+            for t in pending:
+                t.cancel()
+
+            # Collect findings from completed tasks
+            for fut in done:
+                try:
+                    result = fut.result()
+                    if isinstance(result, list):
+                        self.findings.extend(result)
+                except Exception as e:
+                    self.logger.debug(f"CORS test error: {e}")
 
         self.logger.info(f"CORS scan complete. Found {len(self.findings)} misconfigurations")
         return self.findings
